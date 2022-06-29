@@ -26,7 +26,7 @@ jobs:
         run: dotnet build --configuration Release
         
       - name: Test
-        run: dotnet test ./Ahorcado/Tests/bin/Debug/netcoreapp3.1/Tests.dll --logger:"console;verbosity=normal"
+        run: dotnet test D:\a\Ahorcado\Ahorcado\Tests\bin\Release\netcoreapp3.1\Tests.dll --logger:"console;verbosity=normal"
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
