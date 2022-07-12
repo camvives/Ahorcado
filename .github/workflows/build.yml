@@ -43,19 +43,29 @@ jobs:
         shell: powershell
         run: |
           $DebugPreference = "Continue"
-          Write-Debug "Tool Install:"
+          Write-Debug "Tool Install:"          
           dotnet tool install --global dotnet-coverage
+          
           Write-Debug "DotNet SonarScanner"
           dotnet sonarscanner begin /k:"camvives_Ahorcado" /o:"camvives" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          
           Write-Debug "DotNet Build"
           dotnet build --no-incremental
+          
           Write-Debug "DotNet Coverage"
           dotnet-coverage collect 'dotnet test' -f xml  -o 'coverage.xml'
+          
+          Write-Debug "Folder:"
+          ls
+          
           Write-Debug "DotNet SonarScanner"
           dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          
           Write-Debug "DotNet SonarScanner Begin"
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"camvives_Ahorcado" /o:"camvives" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          
           Write-Debug "DotNet Build"
           dotnet build
+          
           Write-Debug "DotNet SonarScanner End"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
