@@ -46,7 +46,7 @@ jobs:
           Write-Debug "Tool Install:"
           dotnet tool install --global dotnet-coverage
           Write-Debug "DotNet SonarScanner"
-          dotnet sonarscanner begin /k:"camvives_Ahorcado" /o:"camvives" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"camvives_Ahorcado" /o:"camvives" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           Write-Debug "DotNet Build"
           dotnet build --no-incremental
           Write-Debug "DotNet Coverage"
