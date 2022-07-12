@@ -43,7 +43,7 @@ jobs:
         shell: powershell
         run: |
           dotnet tool install --global dotnet-coverage
-          dotnet sonarscanner begin /k:"camvives_Ahorcado"
+          dotnet sonarscanner begin /k:"camvives_Ahorcado" /o:"camvives"
               /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
               /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           dotnet build --no-incremental
