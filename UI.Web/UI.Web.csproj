@@ -4,4 +4,26 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\0.png" />
+    <Content Remove="wwwroot\assets\1.png" />
+    <Content Remove="wwwroot\assets\2.png" />
+    <Content Remove="wwwroot\assets\3.png" />
+    <Content Remove="wwwroot\assets\4.png" />
+    <Content Remove="wwwroot\assets\5.png" />
+    <Content Remove="wwwroot\assets\6.png" />
+    <Content Remove="wwwroot\assets\7.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\0.png" />
+    <None Include="wwwroot\assets\1.png" />
+    <None Include="wwwroot\assets\2.png" />
+    <None Include="wwwroot\assets\3.png" />
+    <None Include="wwwroot\assets\4.png" />
+    <None Include="wwwroot\assets\5.png" />
+    <None Include="wwwroot\assets\6.png" />
+    <None Include="wwwroot\assets\7.png" />
+  </ItemGroup>
+
 </Project>

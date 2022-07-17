@@ -1,10 +1,31 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Ahorcado";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 mb-3">Ahorcado</h1>
+   
+    <div class="row">
+        <div class="column mr-5">
+            <img src="./assets/0.png">
+        </div>
+        <div class="column col-lg-7">
+            <h3 class="mt-4 mb-5">Palabra a adivinar</h3>
+
+            <h3 class="mt-3 mb-5">Letras ingresadas</h3>
+
+            <h3 class="mt-3 mb-5">Letras incorrectas</h3>
+
+            <div class="form-group row mt-5">
+                <label for="colFormLabel" class="col-3 col-form-label">Ingrese una letra:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="colFormLabel">
+                </div>
+            </div>
+            <button class="btn-primary btn-block">Intentar</button>
+        </div>
+    </div>
+
 </div>
