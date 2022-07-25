@@ -22,9 +22,7 @@ C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\scopedcss\bundle\
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.TagHelpers.input.cache
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.TagHelpers.output.cache
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.RazorCoreGenerate.cache
-C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
-C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
@@ -36,3 +34,5 @@ C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.dll
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.pdb
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.genruntimeconfig.cache
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.csproj.CopyComplete
+C:\Users\camvi\Desktop\Ahorcado\UI.Web\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\camvi\Desktop\Ahorcado\UI.Web\bin\Debug\netcoreapp3.1\Entities.pdb

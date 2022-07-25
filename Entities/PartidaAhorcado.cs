@@ -9,7 +9,7 @@ namespace Ahorcado.Entities
 {
     public class PartidaAhorcado
     {
-        private const int NUMERO_INTENTOS_MAX = 10;
+        private const int NUMERO_INTENTOS_MAX = 7;
 
         public readonly string PalabraAAdivinar;
         public int Intentos;

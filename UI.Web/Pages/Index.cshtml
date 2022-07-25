@@ -12,19 +12,29 @@
             <img src="./assets/0.png">
         </div>
         <div class="column col-lg-7">
-            <h3 class="mt-4 mb-5">Palabra a adivinar</h3>
+            <h3 class="mt-4 mb-3">Palabra a adivinar</h3>
+            @foreach (char l in Model.PalabraAAdivinar)
+            {
+                <div class="d-inline p-2 bg-dark text-white">_</div>
+            }
 
-            <h3 class="mt-3 mb-5">Letras ingresadas</h3>
+            <h3 class="mt-5 mb-3">Letras ingresadas</h3>
+            <h3 class="mt-5 mb-3">Letras incorrectas</h3>
 
-            <h3 class="mt-3 mb-5">Letras incorrectas</h3>
 
-            <div class="form-group row mt-5">
-                <label for="colFormLabel" class="col-3 col-form-label">Ingrese una letra:</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" id="colFormLabel">
-                </div>
+            <div class="position-absolute bottom-50 end-50">
+                <form class="row g-3 mt-5">
+                    <div class="col-auto">
+                        <label for="letter" class="visually-hidden">Ingrese una letra:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="inputletter" placeholder="" maxlength="1">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2">Intentar</button>
+                    </div>
+                </form>
             </div>
-            <button class="btn-primary btn-block">Intentar</button>
         </div>
     </div>
 

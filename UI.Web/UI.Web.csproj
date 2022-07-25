@@ -26,4 +26,8 @@
     <None Include="wwwroot\assets\7.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
 </Project>

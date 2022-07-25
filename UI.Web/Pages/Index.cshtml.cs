@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Ahorcado.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,6 +12,7 @@ namespace UI.Web.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        public string PalabraAAdivinar;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -19,7 +21,11 @@ namespace UI.Web.Pages
 
         public void OnGet()
         {
-
+            PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
+            PalabraAAdivinar = partida.PalabraAAdivinar;
         }
-    }
+    }     
+
+
+ 
 }
