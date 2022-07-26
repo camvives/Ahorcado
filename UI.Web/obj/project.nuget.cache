@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "cn29YJix5gEGE67GEABzztDKMDGCQQtEkz1gPNYsRPbe817cJf86iFpwsWDqvUj2WYoOQjho9jIjrCKQheRJ1g==",
+  "dgSpecHash": "goHr6oz9/7ri/Yf2yergB2AjomEzGMzgTBeD/i0oiHwo3ir2/JLxBv0Qtjq4KO8OAmli++3NDOp5AaaANRJDAw==",
   "success": true,
   "projectFilePath": "C:\\Users\\camvi\\Desktop\\Ahorcado\\UI.Web\\UI.Web.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\camvi\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\camvi\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\camvi\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\camvi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

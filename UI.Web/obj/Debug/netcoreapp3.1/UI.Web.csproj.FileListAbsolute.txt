@@ -36,3 +36,4 @@ C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.genruntime
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\obj\Debug\netcoreapp3.1\UI.Web.csproj.CopyComplete
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\bin\Debug\netcoreapp3.1\Entities.dll
 C:\Users\camvi\Desktop\Ahorcado\UI.Web\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\camvi\Desktop\Ahorcado\UI.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

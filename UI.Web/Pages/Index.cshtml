@@ -1,9 +1,12 @@
 ﻿@page
+@using Microsoft.AspNetCore.Http;
+@using Ahorcado.Entities; 
 @model IndexModel
 @{
     ViewData["Title"] = "Ahorcado";
 }
 
+@{ PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");}
 <div class="text-center">
     <h1 class="display-4 mb-3">Ahorcado</h1>
    
@@ -13,7 +16,7 @@
         </div>
         <div class="column col-lg-7">
             <h3 class="mt-4 mb-3">Palabra a adivinar</h3>
-            @foreach (char l in Model.PalabraAAdivinar)
+            @foreach (char l in partida.PalabraAAdivinar)
             {
                 <div class="d-inline p-2 bg-dark text-white">_</div>
             }
