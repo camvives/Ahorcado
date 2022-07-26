@@ -29,7 +29,9 @@ namespace UI.Web.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public string PalabraAAdivinar;
+
+        [BindProperty]
+        public string LetraIngresada { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -39,17 +41,16 @@ namespace UI.Web.Pages
         public void OnGet()
         {
             PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
-            HttpContext.Session.SetString("PalabraAAdivinar", partida.PalabraAAdivinar);
             HttpContext.Session.SetObjectAsJson("Partida", partida);
         }
 
         public void OnPost()
         {
-             
+            PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
+            partida.RealizarIntento(LetraIngresada.ToUpper());
+            HttpContext.Session.SetObjectAsJson("Partida", partida);
         }
 
     }     
 
-
- 
 }

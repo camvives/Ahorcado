@@ -17,15 +17,18 @@ namespace Ahorcado.Entities
 
         public Estados Estado { get; private set; }
 
-        public List<string> LetrasAcertadas = new List<string>();
+        public List<string> LetrasAcertadas { get; set; }
 
-        public List<string> LetrasIncorrectas = new List<string>();
+        public List<string> LetrasIncorrectas { get; set; }
 
         public PartidaAhorcado(string palabraAAdivinar)
         {
-            this.PalabraAAdivinar = palabraAAdivinar;
+            this.PalabraAAdivinar = palabraAAdivinar.ToUpper();
             this.Intentos = NUMERO_INTENTOS_MAX;
             this.Estado = Estados.Jugando;
+            this.LetrasAcertadas = new List<string>();
+            this.LetrasIncorrectas = new List<string>();
+
         }
 
         public bool RealizarIntento(string letra)
