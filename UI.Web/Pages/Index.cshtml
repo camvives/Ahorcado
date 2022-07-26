@@ -30,8 +30,14 @@
                 }
             }
 
-
             <h3 class="mt-5 mb-3">Letras incorrectas</h3>
+            @if (partida.LetrasIncorrectas.Any())
+            {
+                foreach (string l in partida.LetrasIncorrectas)
+                {
+                    <div class="d-inline p-2 bg-danger text-white">@l</div>
+                }
+            }
 
 
             <div class="position-absolute bottom-50 end-50">
