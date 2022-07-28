@@ -26,7 +26,7 @@ jobs:
           include-prerelease: true
           
       - name: Newtonsoft
-        run: dotnet add package Newtonsoft.Json --version 13.0.1
+        run: dotnet add Ahorcado.sln package Newtonsoft.Json --version 13.0.1
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
