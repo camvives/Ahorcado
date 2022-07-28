@@ -27,7 +27,11 @@ namespace UI.Web
             services.AddDistributedMemoryCache();
             services.AddMvc();
             services.AddMvc().AddSessionStateTempDataProvider();
-            services.AddSession();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromHours(12);
+                options.Cookie.Name = ".Ahorcado.Session"; 
+                options.Cookie.IsEssential = true;
+            }); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
