@@ -19,14 +19,14 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.0.5
 
-      - name: Restore dependencies
-        run: nuget restore $SOLUTION
-
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '3.1.301'
           include-prerelease: true
+          
+      - name: Newtonsoft
+        run: dotnet add package Newtonsoft.Json --version 13.0.1
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
