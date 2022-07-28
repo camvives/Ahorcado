@@ -29,7 +29,7 @@ jobs:
         run: dotnet build --configuration Release
         
       - name: Newtonsoft
-        run: dotnet add D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj package Newtonsoft.Json --version 13.0.1
+        run: dotnet add D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj package Newtonsoft.Json --version 13.0.0
 
         
       - name: Test
