@@ -25,11 +25,12 @@ jobs:
           dotnet-version: '3.1.301'
           include-prerelease: true
           
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+        
       - name: Newtonsoft
         run: dotnet add Ahorcado.sln package Newtonsoft.Json --version 13.0.1
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
         
       - name: Test
         run: dotnet test D:\a\Ahorcado\Ahorcado\Tests\bin\Release\netcoreapp3.1\Tests.dll --logger:"console;verbosity=normal"
