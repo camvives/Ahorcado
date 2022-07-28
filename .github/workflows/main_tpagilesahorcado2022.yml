@@ -15,6 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+
+      - name: Restore dependencies
+        run: nuget restore $SOLUTION
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
