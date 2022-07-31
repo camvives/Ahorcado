@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace UI.Web.Pages
 {
     public static class SessionExtensions
@@ -47,9 +49,18 @@ namespace UI.Web.Pages
         public void OnPost()
         {
             PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
-            partida.RealizarIntento(LetraIngresada.ToUpper());
-            HttpContext.Session.SetObjectAsJson("Partida", partida);
+            if (partida.Intentos > 0)
+            {
+                partida.RealizarIntento(LetraIngresada.ToUpper());
+                HttpContext.Session.SetObjectAsJson("Partida", partida);
+            }
+            else
+            {
+                Response.Redirect("?");
+            }
+            
         }
+
 
     }     
 

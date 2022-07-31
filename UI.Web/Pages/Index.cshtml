@@ -12,7 +12,40 @@
    
     <div class="row">
         <div class="column mr-5">
-            <img src="./assets/0.png">
+            @if (partida.Intentos == 7)
+            {
+                <img id="imagen" src="./assets/0.png">
+            }
+            else if (partida.Intentos == 6)
+            {
+                <img id="imagen" src="./assets/1.png">
+            }
+            else if (partida.Intentos == 5)
+            {
+                <img id="imagen" src="./assets/2.png">
+            }
+            else if (partida.Intentos == 4)
+            {
+                <img id="imagen" src="./assets/3.png">
+            }
+            else if (partida.Intentos == 3)
+            {
+                <img id="imagen" src="./assets/4.png">
+            }
+            else if (partida.Intentos == 2)
+            {
+                <img id="imagen" src="./assets/5.png">
+            }
+            else if (partida.Intentos == 1)
+            {
+                <img id="imagen" src="./assets/6.png">
+            }
+            else if (partida.Intentos == 0)
+            {
+                <img id="imagen" src="./assets/7.png">
+            }
+
+
         </div>
         <div class="column col-lg-7">
             <h3 class="mt-4 mb-3">Palabra a adivinar</h3>
@@ -46,21 +79,29 @@
                 }
             }
 
-
-            <div class="position-absolute bottom-50 end-50">
-                <form class="row g-3 mt-5" method="post">
-                    <div class="col-auto">
-                        <label for="letter" class="visually-hidden">Ingrese una letra:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" maxlength="1">
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2">Intentar</button>
-                    </div>
+            @if (partida.Intentos > 0)
+            {
+                <div class="position-absolute bottom-50 end-50">
+                    <form class="row g-3 mt-5" method="post">
+                        <div class="col-auto">
+                            <label for="letter" class="visually-hidden">Ingrese una letra:</label>
+                        </div>
+                        <div class="col-auto">
+                            <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" maxlength="1">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2">Intentar</button>
+                        </div>
+                    </form>
+                </div>
+            }
+            else
+            {
+                <form class="mt-5" method="post">
+                        <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a intentar</button>
                 </form>
+            }
             </div>
-        </div>
     </div>
 
 </div>
