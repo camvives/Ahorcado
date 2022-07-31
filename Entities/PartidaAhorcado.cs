@@ -38,13 +38,19 @@ namespace Ahorcado.Entities
             {
                 if (PalabraAAdivinar.Contains(letra))
                 {
-                    LetrasAcertadas.Add(letra);
+                    if (!(LetrasAcertadas.Contains(letra)))
+                    {
+                        LetrasAcertadas.Add(letra);
+                    }
                     PartidaGanada();
                     return true;
                 }
+                else if (!(LetrasIncorrectas.Contains(letra)))
+                {
+                    LetrasIncorrectas.Add(letra);
+                    Intentos--;
+                }
 
-                LetrasIncorrectas.Add(letra);
-                Intentos--;
                 PartidaPerdida();
                 return false;
             }

@@ -86,5 +86,23 @@ namespace Ahorcado.Tests
 
             Assert.AreEqual(PartidaAhorcado.Estados.Perdida, ahorcado.Estado);
         }
+
+        [TestMethod]
+        public void IngresarMismaLetraAcertada_Test()
+        {
+            ahorcado.RealizarIntento("A");
+            ahorcado.RealizarIntento("A");
+
+            Assert.AreEqual(1, ahorcado.LetrasAcertadas.Count);          
+        }
+
+        [TestMethod]
+        public void IngresarMismaLetraIncorrecta_Test()
+        {
+            ahorcado.RealizarIntento("J");
+            ahorcado.RealizarIntento("J");
+
+            Assert.AreEqual(1, ahorcado.LetrasIncorrectas.Count);
+        }
     }
 }
