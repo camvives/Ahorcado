@@ -15,7 +15,7 @@ namespace Ahorcado.Entities
         public int Intentos;
         public enum Estados { Jugando, Ganada, Perdida }
 
-        public Estados Estado { get; private set; }
+        public Estados Estado { get; set; }
 
         public List<string> LetrasAcertadas { get; set; }
 
@@ -28,7 +28,6 @@ namespace Ahorcado.Entities
             this.Estado = Estados.Jugando;
             this.LetrasAcertadas = new List<string>();
             this.LetrasIncorrectas = new List<string>();
-
         }
 
         public bool RealizarIntento(string letra)

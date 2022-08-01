@@ -9,7 +9,6 @@
 @{ PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");}
 <div class="text-center">
     <h1 class="display-4 mb-3">Ahorcado</h1>
-   
     <div class="row">
         <div class="column mr-5">
             @if (partida.Intentos == 7)
@@ -44,64 +43,79 @@
             {
                 <img id="imagen" src="./assets/7.png">
             }
-
-
         </div>
-        <div class="column col-lg-7">
-            <h3 class="mt-4 mb-3">Palabra a adivinar</h3>
-            @foreach (char l in partida.PalabraAAdivinar)
+        @if (partida.Intentos > 0)
+        {
+            if (partida.Estado == PartidaAhorcado.Estados.Ganada)
             {
-                if (partida.LetrasAcertadas.Contains(l.ToString()))
-                {
-                    <div class="d-inline p-2 bg-dark text-white">@l</div>
-                }
-                else
-                {
-                    <div class="d-inline p-2 bg-dark text-white">_</div>
-                }
-            }
-
-            <h3 class="mt-5 mb-3">Letras Acertadas</h3>
-            @if (partida.LetrasAcertadas.Any())
-            {
-                foreach (string l in partida.LetrasAcertadas)
-                {
-                    <div class="d-inline p-2 bg-info text-white">@l</div>
-                }
-            }
-
-            <h3 class="mt-5 mb-3">Letras incorrectas</h3>
-            @if (partida.LetrasIncorrectas.Any())
-            {
-                foreach (string l in partida.LetrasIncorrectas)
-                {
-                    <div class="d-inline p-2 bg-danger text-white">@l</div>
-                }
-            }
-
-            @if (partida.Intentos > 0)
-            {
-                <div class="position-absolute bottom-50 end-50">
-                    <form class="row g-3 mt-5" method="post">
-                        <div class="col-auto">
-                            <label for="letter" class="visually-hidden">Ingrese una letra:</label>
-                        </div>
-                        <div class="col-auto">
-                            <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" maxlength="1">
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary mb-2">Intentar</button>
-                        </div>
+                <div class="column col-lg-7">
+                    <h2 class="mt-5">¡Ganaste!</h2>
+                    <form class="mt-5" method="post">
+                        <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a Jugar</button>
                     </form>
                 </div>
             }
             else
             {
-                <form class="mt-5" method="post">
-                        <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a intentar</button>
-                </form>
+                <div class="column col-lg-7">
+                    <h3 class="mt-4 mb-3">Palabra a adivinar</h3>
+                    @foreach (char l in partida.PalabraAAdivinar)
+                    {
+                        if (partida.LetrasAcertadas.Contains(l.ToString()))
+                        {
+                            <div class="d-inline p-2 bg-dark text-white">@l</div>
+                        }
+                        else
+                        {
+                            <div class="d-inline p-2 bg-dark text-white">_</div>
+                        }
+                    }
+
+                    <h3 class="mt-5 mb-3">Letras Acertadas</h3>
+                    @if (partida.LetrasAcertadas.Any())
+                    {
+                        foreach (string l in partida.LetrasAcertadas)
+                        {
+                            <div class="d-inline p-2 bg-info text-white">@l</div>
+                        }
+                    }
+
+                    <h3 class="mt-5 mb-3">Letras incorrectas</h3>
+                    @if (partida.LetrasIncorrectas.Any())
+                    {
+                        foreach (string l in partida.LetrasIncorrectas)
+                        {
+                            <div class="d-inline p-2 bg-danger text-white">@l</div>
+                        }
+                    }
+
+                    <div class="position-absolute bottom-50 end-50">
+                        <form class="row g-3 mt-5" method="post">
+                            <div class="col-auto">
+                                <label for="letter" class="visually-hidden">Ingrese una letra:</label>
+                            </div>
+                            <div class="col-auto">
+                                <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" maxlength="1" required>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary mb-2">Intentar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             }
+        }
+        else
+        {
+            <div class="column col-lg-7">
+                <h2 class="mt-5">Perdiste :(</h2>
+                <form class="mt-5" method="post">
+                    <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a intentar</button>
+                </form>
             </div>
+        }
     </div>
+       
 
 </div>

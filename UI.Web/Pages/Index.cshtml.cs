@@ -51,14 +51,24 @@ namespace UI.Web.Pages
             PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
             if (partida.Intentos > 0)
             {
-                partida.RealizarIntento(LetraIngresada.ToUpper());
-                HttpContext.Session.SetObjectAsJson("Partida", partida);
+                if (partida.Estado == PartidaAhorcado.Estados.Jugando)
+                {
+                    partida.RealizarIntento(LetraIngresada.ToUpper());
+                    HttpContext.Session.SetObjectAsJson("Partida", partida);
+                }
+                else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
+                {
+                    Response.Redirect("?");
+                }
+
             }
             else
             {
                 Response.Redirect("?");
             }
-            
+
+
+
         }
 
 
