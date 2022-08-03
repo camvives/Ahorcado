@@ -104,5 +104,21 @@ namespace Ahorcado.Tests
 
             Assert.AreEqual(1, ahorcado.LetrasIncorrectas.Count);
         }
+
+        [TestMethod]
+        public void IntentarPalabraCorrecta_Test()
+        {
+            ahorcado.IntentarPalabra("CASA");
+
+            Assert.AreEqual(ahorcado.Estado, PartidaAhorcado.Estados.Ganada);
+        }
+
+        [TestMethod]
+        public void IntentarPalabraIncorrecta_Test()
+        {
+            ahorcado.IntentarPalabra("MESA");
+
+            Assert.AreEqual(ahorcado.Estado, PartidaAhorcado.Estados.Perdida);
+        }
     }
 }

@@ -19,13 +19,27 @@ namespace Ahorcado.Entities
 
         public bool IntentarLetra(string letra)
         {
-            switch (PartidaActual.Estado)
+            if(PartidaActual.Estado == PartidaAhorcado.Estados.Jugando)
             {
-                case PartidaAhorcado.Estados.Jugando:
-                    return PartidaActual.RealizarIntento(letra);
-                default:
-                    return false;
+                return PartidaActual.RealizarIntento(letra);
             }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IntentarPalabra(string palabra)
+        {
+            if (PartidaActual.Estado == PartidaAhorcado.Estados.Jugando)
+            {
+                return PartidaActual.IntentarPalabra(palabra);
+            }
+            else
+            {
+                return false;
+            }
+                
         }
     }
 }
