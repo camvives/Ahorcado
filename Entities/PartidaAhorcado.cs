@@ -70,6 +70,7 @@ namespace Ahorcado.Entities
             else
             {
                 Estado = Estados.Perdida;
+                Intentos = 0;
                 return false;
             }
         }

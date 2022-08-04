@@ -34,7 +34,6 @@ namespace UI.Web.Pages
 
         [BindProperty]
         public string LetraIngresada { get; set; }
-
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
