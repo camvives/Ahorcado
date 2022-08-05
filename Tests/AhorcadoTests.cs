@@ -106,7 +106,7 @@ namespace Ahorcado.Tests
         }
 
         [TestMethod]
-        public void IntentarPalabraCorrecta_Test()
+        public void IngresarPalabraCorrecta_Test()
         {
             ahorcado.IntentarPalabra("CASA");
 
@@ -114,11 +114,114 @@ namespace Ahorcado.Tests
         }
 
         [TestMethod]
-        public void IntentarPalabraIncorrecta_Test()
+        public void IngresarPalabraIncorrecta_Test()
         {
             ahorcado.IntentarPalabra("MESA");
 
             Assert.AreEqual(ahorcado.Estado, PartidaAhorcado.Estados.Perdida);
+        }
+
+        [TestMethod]
+        public void IntentarLetraCorrecta_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            Assert.AreEqual(ahorcadoClase.IntentarLetra("C"), true);
+        }
+
+        [TestMethod]
+        public void IntentarLetraIncorrecta_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            Assert.AreEqual(ahorcadoClase.IntentarLetra("J"), false);
+        }
+
+        [TestMethod]
+        public void IntentarPalabraCorrecta_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            Assert.AreEqual(ahorcadoClase.IntentarPalabra("CASA"), true);
+        }
+
+        [TestMethod]
+        public void IntentarPalabraIncorrecta_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            Assert.AreEqual(ahorcadoClase.IntentarPalabra("MESA"), false);
+        }
+
+        [TestMethod]
+        public void IntentarLetraConJuegoGanado_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            ahorcadoClase.IntentarLetra("C");
+            ahorcadoClase.IntentarLetra("A");
+            ahorcadoClase.IntentarLetra("S");
+
+            Assert.AreEqual(ahorcadoClase.IntentarLetra("A"), false);
+        }
+
+        [TestMethod]
+        public void IntentarPalabraConJuegoGanado_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            ahorcadoClase.IntentarLetra("C");
+            ahorcadoClase.IntentarLetra("A");
+            ahorcadoClase.IntentarLetra("S");
+
+            Assert.AreEqual(ahorcadoClase.IntentarPalabra("CASA"), false);
+        }
+
+        [TestMethod]
+        public void IntentarLetraConJuegoPerdido_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            ahorcadoClase.IntentarLetra("B");
+            ahorcadoClase.IntentarLetra("D");
+            ahorcadoClase.IntentarLetra("E");
+            ahorcadoClase.IntentarLetra("F");
+            ahorcadoClase.IntentarLetra("G");
+            ahorcadoClase.IntentarLetra("H");
+            ahorcadoClase.IntentarLetra("I");
+            ahorcadoClase.IntentarLetra("J");
+            ahorcadoClase.IntentarLetra("K");
+            ahorcadoClase.IntentarLetra("L");
+            ahorcadoClase.IntentarLetra("M");
+
+            Assert.AreEqual(ahorcadoClase.IntentarLetra("A"), false);
+        }
+
+        public void IntentarPalabraConJuegoPerdido_Test()
+        {
+            Entities.Ahorcado ahorcadoClase = new Entities.Ahorcado();
+            ahorcadoClase.Inicializar();
+
+            ahorcadoClase.IntentarLetra("B");
+            ahorcadoClase.IntentarLetra("D");
+            ahorcadoClase.IntentarLetra("E");
+            ahorcadoClase.IntentarLetra("F");
+            ahorcadoClase.IntentarLetra("G");
+            ahorcadoClase.IntentarLetra("H");
+            ahorcadoClase.IntentarLetra("I");
+            ahorcadoClase.IntentarLetra("J");
+            ahorcadoClase.IntentarLetra("K");
+            ahorcadoClase.IntentarLetra("L");
+            ahorcadoClase.IntentarLetra("M");
+
+            Assert.AreEqual(ahorcadoClase.IntentarLetra("CASA"), false);
         }
     }
 }
