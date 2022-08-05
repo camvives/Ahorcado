@@ -42,7 +42,7 @@ namespace UI.Web.Pages
 
         public void OnGet()
         {
-            PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
+            PartidaAhorcado partida = new PartidaAhorcado("AGILES");
             HttpContext.Session.SetObjectAsJson("Partida", partida);
         }
 

@@ -12,5 +12,5 @@ Scenario: Player wins the game letter by letter
 	And Player entered L as the LetraIntresada
 	And Player entered E as the LetraIntresada
 	And Player entered S as the LetraIntresada
-	Then Player should be told that he lost the game
+	Then Player should be told that he won the game
 
