@@ -60,6 +60,21 @@ namespace Ahorcado.Entities
             }
         }
 
+        public bool IntentarPalabra(string palabra)
+        {
+            if(PalabraAAdivinar == palabra)
+            {
+                Estado = Estados.Ganada;
+                return true;
+            }
+            else
+            {
+                Estado = Estados.Perdida;
+                Intentos = 0;
+                return false;
+            }
+        }
+
         private void PartidaGanada()
         {
             foreach (char letra in PalabraAAdivinar)

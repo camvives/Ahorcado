@@ -34,7 +34,6 @@ namespace UI.Web.Pages
 
         [BindProperty]
         public string LetraIngresada { get; set; }
-
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -46,7 +45,7 @@ namespace UI.Web.Pages
             HttpContext.Session.SetObjectAsJson("Partida", partida);
         }
 
-        public void OnPost()
+        public void OnPostLetra()
         {
             PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
             if (partida.Intentos > 0)
@@ -58,20 +57,34 @@ namespace UI.Web.Pages
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
                 {
-                    Response.Redirect("?");
+                    Response.Redirect("/");
                 }
-
             }
             else
             {
-                Response.Redirect("?");
+                Response.Redirect("/");
             }
-
-
-
         }
 
-
-    }     
-
+        public void OnPostPalabra()
+        {
+            PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
+            if (partida.Intentos > 0)
+            {
+                if (partida.Estado == PartidaAhorcado.Estados.Jugando)
+                {
+                    partida.IntentarPalabra(LetraIngresada.ToUpper());
+                    HttpContext.Session.SetObjectAsJson("Partida", partida);
+                }
+                else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
+                {
+                    Response.Redirect("/");
+                }
+            }
+            else
+            {
+                Response.Redirect("/");
+            }
+        }
+    }
 }
