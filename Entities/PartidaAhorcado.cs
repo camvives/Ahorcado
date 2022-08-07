@@ -32,21 +32,21 @@ namespace Ahorcado.Entities
 
         public bool RealizarIntento(string letra)
         {
-
             if (Validaciones.ValidarLetra(letra))
             {
-                if (PalabraAAdivinar.Contains(letra))
+                string letraUpper = letra.ToUpper();
+                if (PalabraAAdivinar.Contains(letraUpper))
                 {
-                    if (!(LetrasAcertadas.Contains(letra)))
+                    if (!(LetrasAcertadas.Contains(letraUpper)))
                     {
-                        LetrasAcertadas.Add(letra);
+                        LetrasAcertadas.Add(letraUpper);
                     }
                     PartidaGanada();
                     return true;
                 }
-                else if (!(LetrasIncorrectas.Contains(letra)))
+                else if (!(LetrasIncorrectas.Contains(letraUpper)))
                 {
-                    LetrasIncorrectas.Add(letra);
+                    LetrasIncorrectas.Add(letraUpper);
                     Intentos--;
                 }
 
@@ -62,7 +62,7 @@ namespace Ahorcado.Entities
 
         public bool IntentarPalabra(string palabra)
         {
-            if(PalabraAAdivinar == palabra)
+            if(PalabraAAdivinar == palabra.ToUpper())
             {
                 Estado = Estados.Ganada;
                 return true;
