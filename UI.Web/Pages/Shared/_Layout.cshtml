@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Ahorcado.Entities
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,11 +26,19 @@
         </main>
     </div>
 
-    <!--<footer class="border-top footer text-muted">
+    <button id="showStatistics" class="btn btn-outline-info">Mostrar Estadisticas</button>
+
+    <div class="estadisticas" hidden>
+        <p>Partidas Totales: @JuegoAhorcado.GetPartidasTotales()</p>
+        <p>Partidas Ganadas: @JuegoAhorcado.GetPartidasGanadas()</p>
+        <p>Partidas Perdidas: @JuegoAhorcado.GetPartidasPerdidas()</p>
+    </div>
+
+    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - Grupo 06
         </div>
-    </footer>-->
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -32,8 +32,11 @@ namespace UI.Web.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        //public JuegoAhorcado juegoAhorcado;
+
         [BindProperty]
         public string LetraIngresada { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -41,13 +44,16 @@ namespace UI.Web.Pages
 
         public void OnGet()
         {
-            PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
-            HttpContext.Session.SetObjectAsJson("Partida", partida);
+            //juegoAhorcado = new JuegoAhorcado();
+            JuegoAhorcado.Inicializar();
+            //PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
+            //HttpContext.Session.SetObjectAsJson("Ahorcado", juegoAhorcado);
         }
 
         public void OnPostLetra()
         {
-            PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
+            //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
+            PartidaAhorcado partida = JuegoAhorcado.getPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
@@ -68,7 +74,8 @@ namespace UI.Web.Pages
 
         public void OnPostPalabra()
         {
-            PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
+            //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
+            PartidaAhorcado partida = JuegoAhorcado.getPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
