@@ -53,12 +53,12 @@ namespace UI.Web.Pages
         public void OnPostLetra()
         {
             //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
-            PartidaAhorcado partida = JuegoAhorcado.getPartidaActual;
+            PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
                 {
-                    partida.RealizarIntento(LetraIngresada.ToUpper());
+                    partida.RealizarIntento(LetraIngresada);
                     HttpContext.Session.SetObjectAsJson("Partida", partida);
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
@@ -75,12 +75,12 @@ namespace UI.Web.Pages
         public void OnPostPalabra()
         {
             //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
-            PartidaAhorcado partida = JuegoAhorcado.getPartidaActual;
+            PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
                 {
-                    partida.IntentarPalabra(LetraIngresada.ToUpper());
+                    partida.IntentarPalabra(LetraIngresada);
                     HttpContext.Session.SetObjectAsJson("Partida", partida);
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)

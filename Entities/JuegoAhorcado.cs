@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Ahorcado.Entities
 {
     public static class JuegoAhorcado
     {
         static PartidaAhorcado PartidaActual;
-        static List<PartidaAhorcado> _Partidas;
+        static List<PartidaAhorcado> _Partidas = new List<PartidaAhorcado>();
 
-        public static PartidaAhorcado getPartidaActual
+        public static PartidaAhorcado GetPartidaActual
         {
             get
             {
@@ -15,14 +16,23 @@ namespace Ahorcado.Entities
             }
         }
 
-        static JuegoAhorcado()
+        public static List<PartidaAhorcado> GetPartidas
         {
-            _Partidas = new List<PartidaAhorcado>();
+            get
+            {
+                return _Partidas;
+            }
         }
 
         public static void Inicializar()
         {
             PartidaActual = new PartidaAhorcado("Ahorcado");
+            _Partidas.Add(PartidaActual);
+        }
+
+        public static void Inicializar(string palabra)
+        {
+            PartidaActual = new PartidaAhorcado(palabra);
             _Partidas.Add(PartidaActual);
         }
 
