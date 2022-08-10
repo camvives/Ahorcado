@@ -50,12 +50,17 @@
         {
             if (partida.Estado == PartidaAhorcado.Estados.Ganada)
             {
-                <div class="column col-lg-7">
-                    <h2 class="mt-5">¡Ganaste!</h2>
-                    <form class="mt-5" method="post">
-                        <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a Jugar</button>
-                    </form>
-                </div>
+            <div class="column col-lg-7">
+                <h2 class="mt-5">¡Ganaste!</h2>
+                <h3 class="mt-4 mb-3">La palabra adivinada es</h3>
+                @foreach (char l in partida.PalabraAAdivinar)
+                {
+                   <div class="d-inline p-2 bg-success text-white">@l</div>
+                }
+                <form class="mt-5" method="post">
+                    <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a Jugar</button>
+                </form>
+            </div>
             }
             else
             {
@@ -123,6 +128,11 @@
         {
             <div class="column col-lg-7">
                 <h2 class="mt-5">Perdiste :(</h2>
+                <h3 class="mt-4 mb-3">La palabra a adivinar era</h3>
+                @foreach (char l in partida.PalabraAAdivinar)
+                {
+                   <div class="d-inline p-2 bg-danger text-white">@l</div>
+                }
                 <form class="mt-5" method="post">
                     <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a intentar</button>
                 </form>
