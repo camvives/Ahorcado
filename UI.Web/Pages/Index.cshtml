@@ -1,12 +1,18 @@
 ﻿@page
 @using Microsoft.AspNetCore.Http;
-@using Ahorcado.Entities; 
+@using Ahorcado.Entities;
+@using IronBarCode;
+@using System;
+@using System.Drawing;
+@using System.Linq;
 @model IndexModel
 @{
     ViewData["Title"] = "Ahorcado";
 }
 
-@{ PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");}
+@{
+    PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
+}
 <div class="text-center">
     <h1 class="display-4 mb-3">Ahorcado</h1>
     <div class="row">
@@ -48,12 +54,23 @@
         {
             if (partida.Estado == PartidaAhorcado.Estados.Ganada)
             {
-                <div class="column col-lg-7">
-                    <h2 id="win" class="mt-5">¡Ganaste!</h2>
-                    <form class="mt-5" method="post">
-                        <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a Jugar</button>
-                    </form>
-                </div>
+    <div class="column col-lg-7">
+        <h2 class="mt-2">¡Ganaste!</h2>
+        <h3 class="mt-4 mb-3">La palabra adivinada es</h3>
+        @foreach (char l in partida.PalabraAAdivinar)
+        {
+            <div class="d-inline p-2 bg-success text-white">@l</div>
+        }
+        <h4 class="mt-3">Scanneá el código para obtener tu beneficio</h4>
+        <h2 class="mt-2">
+            2x1 EN CINES SHOWCASE
+        </h2>
+        <img id="imagen" width="150" src="./assets/frame.png">
+
+        <form class="mt-2" method="post">
+            <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a Jugar</button>
+        </form>
+    </div>
             }
             else
             {
@@ -80,7 +97,7 @@
                         }
                     }
 
-                    <h3 class="mt-5 mb-3">Letras incorrectas</h3>
+                    <h3 class="mt-3 mb-3">Letras incorrectas</h3>
                     @if (partida.LetrasIncorrectas.Any())
                     {
                         foreach (string l in partida.LetrasIncorrectas)
@@ -89,8 +106,8 @@
                         }
                     }
 
-                    <div class="position-absolute bottom-50 end-50">
-                        <form class="row g-3 mt-5" method="post">
+                    <div>
+                        <form class="row g-3 mt-3" asp-page-handler="letra" method="post">
                             <div class="col-auto">
                                 <label for="letter" class="visually-hidden">Ingrese una letra:</label>
                             </div>
@@ -98,24 +115,42 @@
                                 <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" maxlength="1" required>
                             </div>
                             <div class="col-auto">
-                                <button id="Intentar" type="submit" class="btn btn-primary mb-2">Intentar</button>
+                                <button type="submit" class="btn btn-primary mb-2">Intentar Letra</button>
+                            </div>
+                        </form>
+
+                        <form class="row g-3 mt-1" asp-page-handler="palabra" method="post">
+                            <div class="col-auto">
+                                <label for="letter" class="visually-hidden">Arriesgar palabra:</label>
+                            </div>
+                            <div class="col-auto">
+                                <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" required>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary mb-2">Intentar Palabra</button>
                             </div>
                         </form>
                     </div>
-
                 </div>
             }
         }
         else
         {
             <div class="column col-lg-7">
-                <h2 id="lost" class="mt-5">Perdiste :(</h2>
+                <h2 class="mt-5">Perdiste :(</h2>
+                <h3 class="mt-4 mb-3">La palabra a adivinar era</h3>
+                @foreach (char l in partida.PalabraAAdivinar)
+                {
+                    <div class="d-inline p-2 bg-danger text-white">@l</div>
+                }
                 <form class="mt-5" method="post">
                     <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a intentar</button>
                 </form>
             </div>
         }
     </div>
-       
-
+    @if (partida.Estado == PartidaAhorcado.Estados.Ganada)
+    {
+        <p class="mt-2"><small>SE OBTENDRÁN 2 ENTRADAS CADA UNA DE ELLAS AL 50% DEL PRECIO VIGENTE EN BOLETERÍA DE LA ENTRADA GENERAL 3D O SUPERSEAT 3D SEGÚN CORRESPONDA. BENEFICIO VÁLIDO TODOS LOS DÍAS HASTA EL 31 DE DICIEMBRE DE 2022. VÁLIDO PARA COMPRA DE ENTRADAS ON LINE Y EN BOLETERÍAS. NO COMBINABLE CON OTRAS PROMOCIONES. ALGUNAS PELÍCULAS PUEDEN TENER RESTRICCIONES POR PARTE DE LAS DISTRIBUIDORAS. SUJETA A CAPACIDAD DE LAS SALA. BENEFICIO NO CANJEABLE POR DINERO. NO VÁLIDO PARA IMAX. UN BENEFICIO POR DÍA POR PERSONA. PARA APLICAR EL BENEFICIO 2X1 DE LA APP PARA COMPRAR ENTRADAS ON LINE, SE DEBERÁ SELECCIONAR “2X1” EN TIPO DE ENTRADAS PARA QUE EL SISTEMA APLIQUE EL DESCUENTO CORRESPONDIENTE.</small></p>
+    }
 </div>

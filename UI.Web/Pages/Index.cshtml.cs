@@ -32,6 +32,8 @@ namespace UI.Web.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        //public JuegoAhorcado juegoAhorcado;
+
         [BindProperty]
         public string LetraIngresada { get; set; }
 
@@ -42,36 +44,54 @@ namespace UI.Web.Pages
 
         public void OnGet()
         {
-            PartidaAhorcado partida = new PartidaAhorcado("AGILES");
-            HttpContext.Session.SetObjectAsJson("Partida", partida);
+            //juegoAhorcado = new JuegoAhorcado();
+            JuegoAhorcado.Inicializar();
+            //PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
+            //HttpContext.Session.SetObjectAsJson("Ahorcado", juegoAhorcado);
         }
 
-        public void OnPost()
+        public void OnPostLetra()
         {
-            PartidaAhorcado partida = HttpContext.Session.GetObjectFromJson<PartidaAhorcado>("Partida");
+            //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
+            PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
                 {
-                    partida.RealizarIntento(LetraIngresada.ToUpper());
+                    partida.RealizarIntento(LetraIngresada);
                     HttpContext.Session.SetObjectAsJson("Partida", partida);
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
                 {
-                    Response.Redirect("?");
+                    Response.Redirect("/");
                 }
-
             }
             else
             {
-                Response.Redirect("?");
+                Response.Redirect("/");
             }
-
-
-
         }
 
-
-    }     
-
+        public void OnPostPalabra()
+        {
+            //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
+            PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
+            if (partida.Intentos > 0)
+            {
+                if (partida.Estado == PartidaAhorcado.Estados.Jugando)
+                {
+                    partida.IntentarPalabra(LetraIngresada);
+                    HttpContext.Session.SetObjectAsJson("Partida", partida);
+                }
+                else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
+                {
+                    Response.Redirect("/");
+                }
+            }
+            else
+            {
+                Response.Redirect("/");
+            }
+        }
+    }
 }
