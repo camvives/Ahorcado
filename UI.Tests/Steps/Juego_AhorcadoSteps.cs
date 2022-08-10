@@ -3,7 +3,6 @@ using TechTalk.SpecFlow;
 using Ahorcado.Entities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -36,7 +35,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredAAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("A");
             BotonIntentar.Click();
@@ -46,7 +45,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredGAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("G");
             BotonIntentar.Click();
@@ -56,7 +55,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredIAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("I");
             BotonIntentar.Click();
@@ -66,7 +65,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredLAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("L");
             BotonIntentar.Click();
@@ -76,7 +75,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredEAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("E");
             BotonIntentar.Click();
@@ -86,7 +85,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredSAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("S");
             BotonIntentar.Click();
@@ -96,7 +95,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredXAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("X");
             BotonIntentar.Click();
@@ -106,7 +105,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredYAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("Y");
             BotonIntentar.Click();
@@ -116,7 +115,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredJAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("J");
             BotonIntentar.Click();
@@ -126,7 +125,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredQAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("Q");
             BotonIntentar.Click();
@@ -136,7 +135,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredWAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("W");
             BotonIntentar.Click();
@@ -146,7 +145,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredZAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("Z");
             BotonIntentar.Click();
@@ -156,7 +155,7 @@ namespace UI.Tests.Steps
         public void WhenPlayerEnteredPAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
-            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarLetra"));
 
             CampoLetra.SendKeys("P");
             BotonIntentar.Click();
@@ -165,13 +164,21 @@ namespace UI.Tests.Steps
         [When(@"Player entered 'AGILES' as the PalabraIngresada")]
         public void WhenPlayerEnteredAgilesAsThePalabraIngresada()
         {
-            ScenarioContext.Current.Pending();
+            var CampoPalabra = driver.FindElement(By.Id("inputword"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarPalabra"));
+
+            CampoPalabra.SendKeys("AGILES");
+            BotonIntentar.Click();
         }
 
         [When(@"Player entered 'ANCLAS' as the PalabraIngresada")]
         public void WhenPlayerEnteredAsThePalabraIngresada()
         {
-            ScenarioContext.Current.Pending();
+            var CampoPalabra = driver.FindElement(By.Id("inputword"));
+            var BotonIntentar = driver.FindElement(By.Id("IntentarPalabra"));
+
+            CampoPalabra.SendKeys("ANCLAS");
+            BotonIntentar.Click();
         }
 
 
