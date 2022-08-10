@@ -82,7 +82,7 @@
                         }
                     }
 
-                    <h3 class="mt-5 mb-3">Letras incorrectas</h3>
+                    <h3 class="mt-3 mb-3">Letras incorrectas</h3>
                     @if (partida.LetrasIncorrectas.Any())
                     {
                         foreach (string l in partida.LetrasIncorrectas)
@@ -91,8 +91,8 @@
                         }
                     }
 
-                    <div class="position-absolute bottom-50 end-50">
-                        <form class="row g-3 mt-5" asp-page-handler="letra" method="post">
+                    <div>
+                        <form class="row g-3 mt-3" asp-page-handler="letra" method="post">
                             <div class="col-auto">
                                 <label for="letter" class="visually-hidden">Ingrese una letra:</label>
                             </div>
@@ -104,7 +104,7 @@
                             </div>
                         </form>
 
-                        <form class="row g-3 mt-5" asp-page-handler="palabra" method="post">
+                        <form class="row g-3 mt-1" asp-page-handler="palabra" method="post">
                             <div class="col-auto">
                                 <label for="letter" class="visually-hidden">Arriesgar palabra:</label>
                             </div>
