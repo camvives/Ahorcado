@@ -190,5 +190,11 @@ namespace UI.Tests.Steps
 
             Assert.AreEqual(LabelGanar.Text, "Perdiste :(");
         }
+
+        [AfterScenario]
+        public void TestCleanUp()
+        {
+            driver.Quit();
+        }
     }
 }
