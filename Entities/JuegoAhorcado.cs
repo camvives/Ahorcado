@@ -26,7 +26,7 @@ namespace Ahorcado.Entities
 
         public static void Inicializar()
         {
-            PartidaActual = new PartidaAhorcado("Ahorcado");
+            PartidaActual = new PartidaAhorcado("Agiles");
             _Partidas.Add(PartidaActual);
         }
 
