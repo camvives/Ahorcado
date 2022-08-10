@@ -55,7 +55,7 @@
             if (partida.Estado == PartidaAhorcado.Estados.Ganada)
             {
     <div class="column col-lg-7">
-        <h2 class="mt-2">¡Ganaste!</h2>
+        <h2 id="win" class="mt-2">¡Ganaste!</h2>
         <h3 class="mt-4 mb-3">La palabra adivinada es</h3>
         @foreach (char l in partida.PalabraAAdivinar)
         {
@@ -124,7 +124,7 @@
                                 <label for="letter" class="visually-hidden">Arriesgar palabra:</label>
                             </div>
                             <div class="col-auto">
-                                <input name="LetraIngresada" type="text" class="form-control" id="inputletter" placeholder="" required>
+                                <input name="LetraIngresada" type="text" class="form-control" id="inputword" placeholder="" required>
                             </div>
                             <div class="col-auto">
                                 <button type="submit" id="IntentarPalabra" class="btn btn-primary mb-2">Intentar Palabra</button>
@@ -137,7 +137,7 @@
         else
         {
             <div class="column col-lg-7">
-                <h2 class="mt-5">Perdiste :(</h2>
+                <h2 id="lost" class="mt-5">Perdiste :(</h2>
                 <h3 class="mt-4 mb-3">La palabra a adivinar era</h3>
                 @foreach (char l in partida.PalabraAAdivinar)
                 {
