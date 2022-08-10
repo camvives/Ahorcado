@@ -127,7 +127,7 @@ namespace Ahorcado.Tests
             //Entities.JuegoAhorcado JuegoAhorcado = new Entities.JuegoAhorcado();
             JuegoAhorcado.Inicializar();
 
-            Assert.AreEqual(JuegoAhorcado.IntentarLetra("C"), true);
+            Assert.AreEqual(JuegoAhorcado.IntentarLetra("L"), true);
         }
 
         [TestMethod]
