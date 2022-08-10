@@ -25,16 +25,15 @@ namespace UI.Tests.Steps
 
         }
 
-
-        [Given(@"The word to guess 'AGILES'")]
-        public void GivenTheWordToGuess()
-        {         
+        [Given(@"The word to guess '(.*)'")]
+        public void GivenTheWordToGuess(string p0)
+        {
             Partida = new PartidaAhorcado("AGILES");
             driver.Navigate().GoToUrl(URL);
         }
         
-        [When(@"Player entered A as the LetraIntresada")]
-        public void WhenPlayerEnteredAAsTheLetraIntresada()
+        [When(@"Player entered A as the LetraIngresada")]
+        public void WhenPlayerEnteredAAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
             var BotonIntentar = driver.FindElement(By.Id("Intentar"));
@@ -43,8 +42,8 @@ namespace UI.Tests.Steps
             BotonIntentar.Click();
         }
         
-        [When(@"Player entered G as the LetraIntresada")]
-        public void WhenPlayerEnteredGAsTheLetraIntresada()
+        [When(@"Player entered G as the LetraIngresada")]
+        public void WhenPlayerEnteredGAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
             var BotonIntentar = driver.FindElement(By.Id("Intentar"));
@@ -53,8 +52,8 @@ namespace UI.Tests.Steps
             BotonIntentar.Click();
         }
         
-        [When(@"Player entered I as the LetraIntresada")]
-        public void WhenPlayerEnteredIAsTheLetraIntresada()
+        [When(@"Player entered I as the LetraIngresada")]
+        public void WhenPlayerEnteredIAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
             var BotonIntentar = driver.FindElement(By.Id("Intentar"));
@@ -63,8 +62,8 @@ namespace UI.Tests.Steps
             BotonIntentar.Click();
         }
         
-        [When(@"Player entered L as the LetraIntresada")]
-        public void WhenPlayerEnteredLAsTheLetraIntresada()
+        [When(@"Player entered L as the LetraIngresada")]
+        public void WhenPlayerEnteredLAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
             var BotonIntentar = driver.FindElement(By.Id("Intentar"));
@@ -73,8 +72,8 @@ namespace UI.Tests.Steps
             BotonIntentar.Click();
         }
         
-        [When(@"Player entered E as the LetraIntresada")]
-        public void WhenPlayerEnteredEAsTheLetraIntresada()
+        [When(@"Player entered E as the LetraIngresada")]
+        public void WhenPlayerEnteredEAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
             var BotonIntentar = driver.FindElement(By.Id("Intentar"));
@@ -83,8 +82,8 @@ namespace UI.Tests.Steps
             BotonIntentar.Click();
         }
         
-        [When(@"Player entered S as the LetraIntresada")]
-        public void WhenPlayerEnteredSAsTheLetraIntresada()
+        [When(@"Player entered S as the LetraIngresada")]
+        public void WhenPlayerEnteredSAsTheLetraIngresada()
         {
             var CampoLetra = driver.FindElement(By.Id("inputletter"));
             var BotonIntentar = driver.FindElement(By.Id("Intentar"));
@@ -93,18 +92,103 @@ namespace UI.Tests.Steps
             BotonIntentar.Click();
         }
         
+        [When(@"Player entered X as the LetraIngresada")]
+        public void WhenPlayerEnteredXAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("X");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered Y as the LetraIngresada")]
+        public void WhenPlayerEnteredYAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("Y");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered J as the LetraIngresada")]
+        public void WhenPlayerEnteredJAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("J");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered Q as the LetraIngresada")]
+        public void WhenPlayerEnteredQAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("Q");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered W as the LetraIngresada")]
+        public void WhenPlayerEnteredWAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("W");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered Z as the LetraIngresada")]
+        public void WhenPlayerEnteredZAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("Z");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered P as the LetraIngresada")]
+        public void WhenPlayerEnteredPAsTheLetraIngresada()
+        {
+            var CampoLetra = driver.FindElement(By.Id("inputletter"));
+            var BotonIntentar = driver.FindElement(By.Id("Intentar"));
+
+            CampoLetra.SendKeys("P");
+            BotonIntentar.Click();
+        }
+        
+        [When(@"Player entered 'AGILES' as the PalabraIngresada")]
+        public void WhenPlayerEnteredAgilesAsThePalabraIngresada()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"Player entered 'ANCLAS' as the PalabraIngresada")]
+        public void WhenPlayerEnteredAsThePalabraIngresada()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
         [Then(@"Player should be told that he won the game")]
-        public void ThenPlayerShouldBeToldThatHeLostTheGame()
+        public void ThenPlayerShouldBeToldThatHeWonTheGame()
         {
             var LabelGanar = driver.FindElement(By.Id("win"));
 
             Assert.AreEqual(LabelGanar.Text, "¡Ganaste!");
         }
-
-        [AfterScenario]
-        public void TestCleanUp()
+        
+        [Then(@"Player should be told that he lost the game")]
+        public void ThenPlayerShouldBeToldThatHeLostTheGame()
         {
-            driver.Quit();
+            var LabelGanar = driver.FindElement(By.Id("lost"));
+
+            Assert.AreEqual(LabelGanar.Text, "Perdiste :(");
         }
     }
 }
