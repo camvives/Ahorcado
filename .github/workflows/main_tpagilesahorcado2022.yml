@@ -31,9 +31,11 @@ jobs:
       - name: Newtonsoft
         run: dotnet add D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj package Newtonsoft.Json --version 13.0.0.0
 
-        
-      - name: Test
+      - name: Unit Test
         run: dotnet test D:\a\Ahorcado\Ahorcado\Tests\bin\Release\netcoreapp3.1\Tests.dll --logger:"console;verbosity=normal"
+        
+      - name: UI Test
+        run: dotnet test D:\a\Ahorcado\Ahorcado\UI.Tests\bin\Debug\netcoreapp3.1\UI.Tests.dll --logger:"console;verbosity=normal"
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
