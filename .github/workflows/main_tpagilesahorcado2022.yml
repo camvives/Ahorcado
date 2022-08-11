@@ -53,7 +53,7 @@ jobs:
       - uses: actions/checkout@v2
         
       - name: run instance
-        run: dotnet run --project D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj --urls=http://localhost:44314/
+        run: dotnet run --project D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj --urls=http://localhost:44314/ --verbosity d
 
   deploy:
     runs-on: windows-latest
