@@ -51,9 +51,6 @@ jobs:
   
     steps:
       - uses: actions/checkout@v2
-     
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
         
       - name: run instance
         run: dotnet run --project D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj --urls=http://localhost:44314/
