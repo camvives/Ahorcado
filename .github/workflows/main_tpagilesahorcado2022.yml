@@ -33,9 +33,6 @@ jobs:
 
       - name: Unit Test
         run: dotnet test D:\a\Ahorcado\Ahorcado\Tests\bin\Release\netcoreapp3.1\Tests.dll --logger:"console;verbosity=normal"
-        
-      - name: UI Test
-        run: dotnet test D:\a\Ahorcado\Ahorcado\UI.Tests\bin\Release\netcoreapp3.1\UI.Tests.dll --logger:"console;verbosity=normal"
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -45,19 +42,39 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
-            
-  run_instance:
-    runs-on: windows-latest
-  
-    steps:
-      - uses: actions/checkout@v2
-        
-      - name: run instance
-        run: dotnet run --project D:\a\Ahorcado\Ahorcado\UI.Web\UI.Web.csproj --urls=http://localhost:44314/ --verbosity d
-
-  deploy:
+          
+  deploy-to-test:
     runs-on: windows-latest
     needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'TPagiles2022Test'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_07B9E1F0FDF04DF88750155F95455CC6 }}
+          package: .
+      
+  ui-tests:
+    runs-on: windows-latest
+    needs: deploy-to-test
+    steps:
+      - name: test
+        run: echo "Hello world"
+    
+  deploy:
+    runs-on: windows-latest
+    needs: ui-tests
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
