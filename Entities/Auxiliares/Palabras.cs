@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Security.Cryptography;
 
 namespace Ahorcado.Entities.Auxiliares
 {
@@ -16,9 +17,8 @@ namespace Ahorcado.Entities.Auxiliares
 
         public static string PalabraAleatoria()
         {
-            Random rnd = new Random();
-            int nroAleatorio = rnd.Next(palabras.Length);
-            return palabras[nroAleatorio];
+            var rnd = new Random();
+            return palabras[rnd.Next(palabras.Length)];
         }
     }
 }
