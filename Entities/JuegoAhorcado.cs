@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ahorcado.Entities.Auxiliares;
 
 namespace Ahorcado.Entities
 {
@@ -26,7 +27,7 @@ namespace Ahorcado.Entities
 
         public static void Inicializar()
         {
-            PartidaActual = new PartidaAhorcado("Agiles");
+            PartidaActual = new PartidaAhorcado(Palabras.PalabraAleatoria());
             _Partidas.Add(PartidaActual);
         }
 
