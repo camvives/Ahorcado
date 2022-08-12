@@ -125,7 +125,7 @@ namespace Ahorcado.Tests
         public void IntentarLetraCorrecta_Test()
         {
             //Entities.JuegoAhorcado JuegoAhorcado = new Entities.JuegoAhorcado();
-            JuegoAhorcado.Inicializar();
+            JuegoAhorcado.Inicializar("AGILES");
 
             Assert.AreEqual(JuegoAhorcado.IntentarLetra("L"), true);
         }
@@ -134,7 +134,7 @@ namespace Ahorcado.Tests
         public void IntentarLetraIncorrecta_Test()
         {
             //Entities.JuegoAhorcado JuegoAhorcado = new Entities.JuegoAhorcado();
-            JuegoAhorcado.Inicializar();
+            JuegoAhorcado.Inicializar("AGILES");
 
             Assert.AreEqual(JuegoAhorcado.IntentarLetra("J"), false);
         }
