@@ -20,7 +20,7 @@ namespace UI.Tests.Steps
         {
             var path = AppDomain.CurrentDomain.BaseDirectory + @"Drivers";
             driver = new ChromeDriver(path);
-            URL = "https://localhost:44314/";
+            URL = "https://tpagiles2022test.azurewebsites.net/";
 
         }
 
