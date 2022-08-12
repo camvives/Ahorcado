@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{1DADA198-1A84-4500-83FC-067CB4C1D8C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Tests", "UI.Tests\UI.Tests.csproj", "{4A1C0543-0765-4F23-84A8-7FDAF0B03483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.Tests", "UI.Tests\UI.Tests.csproj", "{4A1C0543-0765-4F23-84A8-7FDAF0B03483}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Drivers", "Drivers", "{9443AB1D-B14E-4CD9-868E-0044FD79905C}"
+	ProjectSection(SolutionItems) = preProject
+		..\chromedriver_win32 (1)\chromedriver.exe = ..\chromedriver_win32 (1)\chromedriver.exe
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
