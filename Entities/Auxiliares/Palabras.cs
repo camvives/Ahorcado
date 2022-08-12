@@ -17,8 +17,7 @@ namespace Ahorcado.Entities.Auxiliares
 
         public static string PalabraAleatoria()
         {
-            var rnd = new Random();
-            return palabras[rnd.Next(palabras.Length)];
+            return palabras[RandomNumberGenerator.GetInt32(palabras.Length)];
         }
     }
 }
