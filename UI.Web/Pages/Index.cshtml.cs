@@ -13,20 +13,6 @@ using System.Threading.Tasks;
 
 namespace UI.Web.Pages
 {
-    public static class SessionExtensions
-    {
-        public static void SetObjectAsJson(this ISession session, string key, object value)
-        {
-            session.SetString(key, JsonConvert.SerializeObject(value));
-        }
-
-        public static T GetObjectFromJson<T>(this ISession session, string key)
-        {
-            var value = session.GetString(key);
-
-            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
-        }
-    }
 
     public class IndexModel : PageModel
     {
@@ -44,22 +30,17 @@ namespace UI.Web.Pages
 
         public void OnGet()
         {
-            //juegoAhorcado = new JuegoAhorcado();
             JuegoAhorcado.Inicializar();
-            //PartidaAhorcado partida = new PartidaAhorcado("Ahorcado");
-            //HttpContext.Session.SetObjectAsJson("Ahorcado", juegoAhorcado);
         }
 
         public void OnPostLetra()
         {
-            //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
             PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
                 {
                     partida.RealizarIntento(LetraIngresada);
-                    HttpContext.Session.SetObjectAsJson("Partida", partida);
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
                 {
@@ -74,14 +55,12 @@ namespace UI.Web.Pages
 
         public void OnPostPalabra()
         {
-            //JuegoAhorcado ahorcado = HttpContext.Session.GetObjectFromJson<JuegoAhorcado>("Ahorcado");
             PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
             if (partida.Intentos > 0)
             {
                 if (partida.Estado == PartidaAhorcado.Estados.Jugando)
                 {
                     partida.IntentarPalabra(LetraIngresada);
-                    HttpContext.Session.SetObjectAsJson("Partida", partida);
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
                 {
