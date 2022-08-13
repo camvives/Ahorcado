@@ -30,7 +30,16 @@ namespace UI.Web.Pages
 
         public void OnGet()
         {
-            JuegoAhorcado.Inicializar();
+            string url = Microsoft.AspNetCore.Http.Extensions.UriHelper.GetDisplayUrl(Request);
+            if (url == "https://tpagiles2022test.azurewebsites.net/")
+            {
+                JuegoAhorcado.Inicializar("AGILES");
+            }
+            else
+            {
+                JuegoAhorcado.Inicializar();
+            }
+
         }
 
         public void OnPostLetra()
