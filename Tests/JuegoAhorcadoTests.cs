@@ -64,6 +64,8 @@ namespace Ahorcado.Tests
         [TestMethod]
         public void GetGanadores_Test()
         {
+            JuegoAhorcado.ClearJugadores();
+
             JuegoAhorcado.RegistrarJugador("Jugador1");
             JuegoAhorcado.RegistrarJugador("Jugador2");
 

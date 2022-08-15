@@ -95,7 +95,7 @@ namespace Ahorcado.Entities
 
         public void RegistrarJugador(string nombre)
         {
-            if(nombre != null)
+            if(nombre != "")
             {
                 JuegoAhorcado.RegistrarJugador(nombre);
             }

@@ -84,9 +84,22 @@ namespace Ahorcado.Entities
             _Jugadores.Reverse();
         }
 
+        public static void ClearJugadores()
+        {
+            _Jugadores.Clear();
+        }
+
         public static string GetGanadores()
-        {           
-            return string.Join(", ", _Jugadores);
+        {
+            if (_Jugadores.Count > 1)
+            {
+                return string.Join(", ", _Jugadores);
+            }
+            else
+            {
+                return _Jugadores[0].ToString();
+            }
+
         }
     } 
 }
