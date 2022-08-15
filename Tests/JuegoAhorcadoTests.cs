@@ -62,7 +62,7 @@ namespace Ahorcado.Tests
         }
 
         [TestMethod]
-        public void GetGanadores_Test()
+        public void GetDosGanadores_Test()
         {
             JuegoAhorcado.ClearJugadores();
 
@@ -71,5 +71,24 @@ namespace Ahorcado.Tests
 
             Assert.AreEqual(JuegoAhorcado.GetGanadores(), "Jugador2, Jugador1");
         }
+
+        [TestMethod]
+        public void GetUnGanador_Test()
+        {
+            JuegoAhorcado.ClearJugadores();
+
+            JuegoAhorcado.RegistrarJugador("Jugador1");
+
+            Assert.AreEqual(JuegoAhorcado.GetGanadores(), "Jugador1");
+        }
+
+        [TestMethod]
+        public void GetSinGanadores_Test()
+        {
+            JuegoAhorcado.ClearJugadores();
+
+            Assert.AreEqual(JuegoAhorcado.GetGanadores(), null);
+        }
+
     }
 }

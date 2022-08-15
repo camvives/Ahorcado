@@ -95,11 +95,14 @@ namespace Ahorcado.Entities
             {
                 return string.Join(", ", _Jugadores);
             }
-            else
+            else if (_Jugadores.Count == 1)
             {
                 return _Jugadores[0].ToString();
             }
-
+            else
+            {
+                return null;
+            }
         }
     } 
 }
