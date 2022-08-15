@@ -11,7 +11,7 @@ namespace UI.Tests.Steps
     [Binding]
     public class Juego_AhorcadoSteps
     {
-        IWebDriver driver;
+        IWebDriver driver = new ChromeDriver();
         String? URL;
         PartidaAhorcado? Partida;
 
