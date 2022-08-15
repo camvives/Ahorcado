@@ -23,6 +23,9 @@ namespace UI.Web.Pages
         [BindProperty]
         public string LetraIngresada { get; set; }
 
+        [BindProperty]
+        public string Jugador { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -53,6 +56,7 @@ namespace UI.Web.Pages
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
                 {
+                    partida.RegistrarJugador(Jugador);
                     Response.Redirect("/");
                 }
             }
@@ -73,6 +77,7 @@ namespace UI.Web.Pages
                 }
                 else if (partida.Estado == PartidaAhorcado.Estados.Ganada)
                 {
+                    partida.RegistrarJugador(Jugador);
                     Response.Redirect("/");
                 }
             }

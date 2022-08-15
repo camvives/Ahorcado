@@ -8,6 +8,7 @@ namespace Ahorcado.Entities
     {
         static PartidaAhorcado PartidaActual;
         static List<PartidaAhorcado> _Partidas = new List<PartidaAhorcado>();
+        static List<string> _Jugadores = new List<string>();
 
         public static PartidaAhorcado GetPartidaActual
         {
@@ -77,5 +78,16 @@ namespace Ahorcado.Entities
             return _Partidas.FindAll(p => p.Estado == PartidaAhorcado.Estados.Perdida).Count;
         }
 
-    }
+        public static void RegistrarJugador(string nombre)
+        {
+            _Jugadores.Add(nombre);
+            _Jugadores.Reverse();
+        }
+
+        public static string GetGanadores()
+        {
+            
+            return string.Join(", ", _Jugadores);
+        }
+    } 
 }
