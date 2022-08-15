@@ -36,7 +36,7 @@
                     <small><b>Partidas Ganadas:</b> @JuegoAhorcado.GetPartidasGanadas()</small>
                     <br />
                     <small><b>Partidas Perdidas:</b> @JuegoAhorcado.GetPartidasPerdidas()</small>
-                    @if (@JuegoAhorcado.GetGanadores() != null)
+                    @if (@JuegoAhorcado.GetGanadores() != string.Empty)
                     {
                         <br />
                         <small><b>Últimos Ganadores: </b>@JuegoAhorcado.GetGanadores()</small>
