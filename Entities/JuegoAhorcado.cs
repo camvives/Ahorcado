@@ -85,8 +85,7 @@ namespace Ahorcado.Entities
         }
 
         public static string GetGanadores()
-        {
-            
+        {           
             return string.Join(", ", _Jugadores);
         }
     } 
