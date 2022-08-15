@@ -48,5 +48,26 @@ namespace Ahorcado.Tests
 
             Assert.AreEqual(partidasGanadasEsperadas.Count, JuegoAhorcado.GetPartidasGanadas());
         }
+
+        [TestMethod]
+        public void GetPartidasPerdidas_Test()
+        {
+            JuegoAhorcado.Inicializar("Ahorcado");
+
+            JuegoAhorcado.IntentarPalabra("agiles");
+
+            List<PartidaAhorcado> partidasPerdidasEsperadas = JuegoAhorcado.GetPartidas.FindAll(p => p.Estado == PartidaAhorcado.Estados.Perdida);
+
+            Assert.AreEqual(partidasPerdidasEsperadas.Count, JuegoAhorcado.GetPartidasPerdidas());
+        }
+
+        [TestMethod]
+        public void GetGanadores_Test()
+        {
+            JuegoAhorcado.RegistrarJugador("Jugador1");
+            JuegoAhorcado.RegistrarJugador("Jugador2");
+
+            Assert.AreEqual(JuegoAhorcado.GetGanadores(), "Jugador2, Jugador1");
+        }
     }
 }

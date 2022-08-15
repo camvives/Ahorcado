@@ -33,8 +33,15 @@
             <div class="card">
                 <div class="card-body">
                     <h5>Partidas Totales: @JuegoAhorcado.GetPartidasTotales()</h5>
-                    <small>Partidas Ganadas: @JuegoAhorcado.GetPartidasGanadas()</small>
-                    <small>Partidas Perdidas: @JuegoAhorcado.GetPartidasPerdidas()</small>
+                    <small><b>Partidas Ganadas:</b> @JuegoAhorcado.GetPartidasGanadas()</small>
+                    <br />
+                    <small><b>Partidas Perdidas:</b> @JuegoAhorcado.GetPartidasPerdidas()</small>
+                    @if (@JuegoAhorcado.GetGanadores() != string.Empty)
+                    {
+                        <br />
+                        <small><b>Últimos Ganadores: </b>@JuegoAhorcado.GetGanadores()</small>
+                    }
+
                 </div>
             </div>
         </div>

@@ -92,5 +92,14 @@ namespace Ahorcado.Entities
             if (this.Intentos == 0)
                 Estado = Estados.Perdida;
         }
+
+        public void RegistrarJugador(string nombre)
+        {
+            if(nombre != null)
+            {
+                JuegoAhorcado.RegistrarJugador(nombre);
+            }
+
+        }
     }
 }

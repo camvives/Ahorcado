@@ -14,8 +14,8 @@
     PartidaAhorcado partida = JuegoAhorcado.GetPartidaActual;
 }
 <div class="text-center">
-    <h1 class="display-4 mb-3">Ahorcado</h1>
-    <div class="row">
+    
+    <div class="row mt-5">
         <div class="column mr-5">
             @if (partida.Intentos == 7)
             {
@@ -54,22 +54,45 @@
         {
             if (partida.Estado == PartidaAhorcado.Estados.Ganada)
             {
-    <div class="column col-lg-7">
+    <div class="column col-lg-7 hide">
         <h2 id="win" class="mt-2">¡Ganaste!</h2>
         <h3 class="mt-4 mb-3">La palabra adivinada es</h3>
         @foreach (char l in partida.PalabraAAdivinar)
         {
             <div class="d-inline p-2 bg-success text-white">@l</div>
         }
-        <h4 class="mt-3">Scanneá el código para obtener tu beneficio</h4>
-        <h2 class="mt-2">
-            2x1 EN CINES SHOWCASE
-        </h2>
-        <img id="imagen" width="150" src="./assets/frame.png">
-
         <form class="mt-2" method="post">
-            <button type="submit" class="btn btn-primary mb-2 mt-3 block">Volver a Jugar</button>
+            <div class="input-group mb-3 mt-5 col-lg-9 ml-5" id="nombre">
+                <input type="text" class="form-control" placeholder="Ingresá tu nombre" name="Jugador" id="nombrejugador">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="$('#beneficio').toggle();$('#nombre').toggle();document.getElementById('volverajugar').disabled = false">✔️</button>
+                </div>
+            </div>
+            <div class="card" id="beneficio" style="display: none">
+                <div class="card-body">
+                    <div class="container">
+                        <h5 class="mt-3">Escaneá el código para obtener tu beneficio:</h5>
+                        <div class="row">
+                            <div class="col-sm-7 mt-5">
+                                <h2 class="mt-2">
+                                    2x1 EN
+                                </h2>
+                                <h2>
+                                    CINES SHOWCASE
+                                </h2>
+                            </div>
+                            <div class="col-sm">
+                                <img id="imagen" width="200" src="./assets/frame.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="volverajugar" type="submit" class="btn btn-primary mb-2 mt-3 block" disabled>¡Listo!</button>
+
+                </div>
+            </div>
         </form>
+
     </div>
             }
             else
@@ -149,8 +172,5 @@
             </div>
         }
     </div>
-    @if (partida.Estado == PartidaAhorcado.Estados.Ganada)
-    {
-        <p class="mt-2"><small>SE OBTENDRÁN 2 ENTRADAS CADA UNA DE ELLAS AL 50% DEL PRECIO VIGENTE EN BOLETERÍA DE LA ENTRADA GENERAL 3D O SUPERSEAT 3D SEGÚN CORRESPONDA. BENEFICIO VÁLIDO TODOS LOS DÍAS HASTA EL 31 DE DICIEMBRE DE 2022. VÁLIDO PARA COMPRA DE ENTRADAS ON LINE Y EN BOLETERÍAS. NO COMBINABLE CON OTRAS PROMOCIONES. ALGUNAS PELÍCULAS PUEDEN TENER RESTRICCIONES POR PARTE DE LAS DISTRIBUIDORAS. SUJETA A CAPACIDAD DE LAS SALA. BENEFICIO NO CANJEABLE POR DINERO. NO VÁLIDO PARA IMAX. UN BENEFICIO POR DÍA POR PERSONA. PARA APLICAR EL BENEFICIO 2X1 DE LA APP PARA COMPRAR ENTRADAS ON LINE, SE DEBERÁ SELECCIONAR “2X1” EN TIPO DE ENTRADAS PARA QUE EL SISTEMA APLIQUE EL DESCUENTO CORRESPONDIENTE.</small></p>
-    }
+
 </div>

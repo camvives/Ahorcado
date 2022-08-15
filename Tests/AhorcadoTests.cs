@@ -223,5 +223,15 @@ namespace Ahorcado.Tests
 
             Assert.AreEqual(JuegoAhorcado.IntentarLetra("CASA"), false);
         }
+    
+        [TestMethod]
+        public void RegistrarJugador_Test()
+        {
+            ahorcado.RegistrarJugador("");
+            ahorcado.RegistrarJugador("Jugador1");
+
+            Assert.AreEqual(JuegoAhorcado.GetGanadores(), "Jugador1");
+
+        }
     }
 }
