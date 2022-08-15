@@ -65,7 +65,7 @@
             <div class="input-group mb-3 mt-5 col-lg-9 ml-5" id="nombre">
                 <input type="text" class="form-control" placeholder="Ingresá tu nombre" name="Jugador" id="nombrejugador">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" onclick="$('#beneficio').toggle();$('#nombre').toggle();">✔️</button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="$('#beneficio').toggle();$('#nombre').toggle();document.getElementById('volverajugar').disabled = false">✔️</button>
                 </div>
             </div>
             <div class="card" id="beneficio" style="display: none">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mb-2 mt-3 block">¡Listo!</button>
+                    <button id="volverajugar" type="submit" class="btn btn-primary mb-2 mt-3 block" disabled>¡Listo!</button>
 
                 </div>
             </div>
