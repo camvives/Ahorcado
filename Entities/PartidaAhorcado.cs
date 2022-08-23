@@ -39,9 +39,9 @@ namespace Ahorcado.Entities
                 {
                     if (!(LetrasAcertadas.Contains(letraUpper)))
                     {
-                        //LetrasAcertadas.Add(letraUpper);
+                        LetrasAcertadas.Add(letraUpper);
                     }
-                    //PartidaGanada();
+                    PartidaGanada();
                     return true;
                 }
                 else if (!(LetrasIncorrectas.Contains(letraUpper)))
